@@ -1,4 +1,6 @@
 #!/bin/bash
+apt-get update && apt-get upgrade
+sudo apt-get install build-essential
 pip install -r requirements.txt
 echo -e "   *\n  ***\n *****\n*******"
 echo 'if you want to use other LLM please follow instructions on https://www.llama.com/llama-downloads/'
