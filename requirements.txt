@@ -4,3 +4,4 @@ numpy==1.26.2
 pip==23.0.1
 setuptools==66.1.1
 typing_extensions==4.8.0
+llama-stack
