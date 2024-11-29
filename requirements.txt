@@ -1,0 +1,16 @@
+diskcache==5.6.3
+llama_cpp_python==0.2.20
+pip
+setuptools==66.1.1
+typing_extensions==4.8.0
+numpy== 2.0.2
+
+llama-stack
+scikit-learn
+spacy
+wikipedia
+wikipedia-api
+sentence-transformers
+
+
+
