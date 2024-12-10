@@ -8,11 +8,12 @@ import spacy
 from llama_cpp import Llama
 from sentence_transformers import SentenceTransformer
 from difflib import SequenceMatcher
+import  sentence_sentiment, question_type
 
 wiki_wiki = wikipediaapi.Wikipedia('WDPS Assignment Group_2', 'en')
 nlp = spacy.load("en_core_web_sm")
 bert_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
-model_path = '/home/user/models/llama-2-7b.Q4_K_M.gguf'
+model_path = '/mnt/f/homeworks/WDPR/group_2/models/llama-2-7b-chat.Q4_K_M.gguf'
 llm = Llama(model_path=model_path, verbose=False)
 
 
@@ -153,6 +154,8 @@ else:
     print(f'input file not found\n should be at {input_file}\n, exiting')
     exit()
 
+q_types = question_type.question_classifier(q_list)
+
 # Create output.txt
 output_file_path = "output.txt"
 output_file = open(output_file_path, "w")
@@ -203,5 +206,12 @@ for question_id, question_text in q_list:
         E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity['url'] + '"' + '\n'
         print(E)
         output_file.write(E)
+
+    if q_types[question_id] == 1:  # yes/no case
+        my_extract = sentence_sentiment.classify_yes_no(raw_answer)
+    elif q_types[question_id] == 2:  # entity case
+        my_extract = ""
+    else:
+        my_extract = ""
 
 output_file.close()

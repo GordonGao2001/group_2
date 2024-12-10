@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="wdps" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="wdps" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="wdpr" project-jdk-type="Python SDK" />
 </project>
