@@ -29,3 +29,5 @@ def test():
     response = "Correct, the Cameramen are the main force fighting against the Skibidi Toilets in the series."
     result = classify_yes_no(question, response)
     print(f"Prediction: {result}")
+
+# test()

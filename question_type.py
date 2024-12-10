@@ -11,7 +11,7 @@ def extract_meaningful_segment(skibidi):
     Dynamically extract the most meaningful sentence-like segment from noisy input.
     """
     # just don't split at space and we're good
-    segments = re.split(r"[;|.,!?/:\\~*#\-\n\t]+", skibidi)
+    segments = re.split(r"[;|.,!?/:\\~*#\-\n\t]+", skibidi[1])
     # Filter and clean segments
     segments = [seg.strip() for seg in segments if len(seg.strip()) > 0]
 

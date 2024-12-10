@@ -207,9 +207,12 @@ for question_id, question_text in q_list:
         print(E)
         output_file.write(E)
 
-    if q_types[question_id] == 1:  # yes/no case
-        my_extract = sentence_sentiment.classify_yes_no(raw_answer)
-    elif q_types[question_id] == 2:  # entity case
+    if q_types[int(question_id[-3:])] == 1:  # yes/no case
+        my_extract = sentence_sentiment.classify_yes_no(question_text, raw_answer)
+        A = question_id + '\t' + 'A' + '\"' + my_extract + '\"\n'
+        print(A)
+        output_file.write(A)
+    elif q_types[int(question_id[-3:])] == 2:  # entity case
         my_extract = ""
     else:
         my_extract = ""
