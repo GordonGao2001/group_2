@@ -8,8 +8,9 @@ import spacy
 from llama_cpp import Llama
 from sentence_transformers import SentenceTransformer
 from difflib import SequenceMatcher
-import  sentence_sentiment, question_type
-import  Entity_extr as ee
+import sentence_sentiment, question_type
+import Entity_extr as ee
+from matcher import Matcher
 
 wiki_wiki = wikipediaapi.Wikipedia('WDPS Assignment Group_2', 'en')
 nlp = spacy.load("en_core_web_sm")
@@ -34,7 +35,8 @@ def generate_candidates(entity_name):
                         'summary': candidate_page_api.summary
                     })
                 # Handle disambiguation by adding multiple entries
-                elif isinstance(candidate_page_api, wikipediaapi.WikipediaPage) and candidate_page_api.is_disambiguation():
+                elif isinstance(candidate_page_api,
+                                wikipediaapi.WikipediaPage) and candidate_page_api.is_disambiguation():
                     for disambiguation_option in candidate_page_api.links.keys():
                         disambiguation_page = wiki_wiki.page(disambiguation_option)
                         if disambiguation_page.exists():
@@ -62,13 +64,14 @@ def generate_candidates(entity_name):
             unique_candidates.append(candidate)
     return unique_candidates
 
-def candidate_linking(question,answer, named_entities, bert_model):
+
+def candidate_linking(question, answer, named_entities, bert_model):
     linked_entities = []
     seen_entities = set()
     normalized_entities = set()
 
     question_vector = bert_model.encode([question])[0]
-    answer_vector = bert_model.encode([answer])[0] 
+    answer_vector = bert_model.encode([answer])[0]
 
     question_weight = 0.5
     answer_weight = 0.5
@@ -120,6 +123,7 @@ def candidate_linking(question,answer, named_entities, bert_model):
                     linked_entities.append(top_ranked_candidate)
     return linked_entities
 
+
 # Read questions from input.txt, return (question_id, question_text) list
 def file_reader(f_path):
     questions = []
@@ -140,6 +144,7 @@ def file_reader(f_path):
                 exit()
     return questions
 
+
 # Read questions from input file
 q_list = []
 input_file = os.getcwd() + '/input.txt'
@@ -150,7 +155,7 @@ else:
     exit()
 
 q_types = question_type.questions_classifier(q_list)
-
+# print(q_types)
 # Create output.txt
 output_file_path = "output.txt"
 output_file = open(output_file_path, "w")
@@ -195,23 +200,31 @@ for question_id, question_text in q_list:
     print(filtered_named_entities)
 
     # Link entities
-    linked_entities = candidate_linking(question_text,raw_answer, filtered_named_entities, bert_model)
+    linked_entities = candidate_linking(question_text, raw_answer, filtered_named_entities, bert_model)
 
     for linked_entity in linked_entities:
-        E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity['url'] + '"' + '\n'
+        E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity[
+            'url'] + '"' + '\n'
         print(E)
         output_file.write(E)
 
-    if q_types[int(question_id[-3:])] == 1:  # yes/no case
+    # print(f"****************delete me after publish*********:{question_id}")
+    if q_types[int(question_id[-3:]) - 1] == 1:  # yes/no case
         my_extract = sentence_sentiment.classify_yes_no(raw_answer)
         A = question_id + '\t' + 'A' + '\"' + my_extract + '\"\n'
         print(A)
         output_file.write(A)
-    elif q_types[int(question_id[-3:])] == 2:  # entity case
+    elif q_types[int(question_id[-3:]) - 1] == 2:  # entity case
         my_extract = ee.extract_entity_answer(linked_entities, raw_answer, bert_model)
-        A = question_id + '\t' + 'A' + '\"' + my_extract + '\"\n'
-        print(A)
-        output_file.write(A)
+        if False:  # why do we need to extract the url as an answer????
+            A = question_id + '\t' + 'A' + '\"' + my_extract + '\"\n'
+            print(A)
+            output_file.write(A)
+        elif True:  # I just add url in a tuple, so you can use the extracted entity as original
+            matcher = Matcher()
+            A = question_id + '\t' + 'A' + '\"' + my_extract + matcher.url(my_extract, linked_entities) + '\"\n'
+            print(A)
+            output_file.write(A)
     else:
         my_extract = ""
 
