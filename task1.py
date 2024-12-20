@@ -62,16 +62,10 @@ def generate_candidates(entity_name):
             unique_candidates.append(candidate)
     return unique_candidates
 
-def candidate_linking(question_and_answer, named_entities, bert_model):
+def candidate_linking(question,answer, named_entities, bert_model):
     linked_entities = []
     seen_entities = set()
     normalized_entities = set()
-    # Encode the entire question + answer as a vector using BERT
-    if ' Answer:' in question_and_answer:
-        question, answer = question_and_answer.split(' Answer:')
-    else:
-        question = question_and_answer
-        answer = ""
 
     question_vector = bert_model.encode([question])[0]
     answer_vector = bert_model.encode([answer])[0] if answer else question_vector
@@ -201,7 +195,7 @@ for question_id, question_text in q_list:
     print(filtered_named_entities)
 
     # Link entities
-    linked_entities = candidate_linking(QandA, filtered_named_entities, bert_model)
+    linked_entities = candidate_linking(question_text,raw_answer, filtered_named_entities, bert_model)
 
     for linked_entity in linked_entities:
         E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity['url'] + '"' + '\n'
