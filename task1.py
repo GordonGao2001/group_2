@@ -203,12 +203,6 @@ for question_id, question_text in q_list:
     # Link entities
     linked_entities = candidate_linking(question_text, raw_answer, filtered_named_entities, bert_model)
 
-    for linked_entity in linked_entities:
-        E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity[
-            'url'] + '"' + '\n'
-        print(E)
-        output_file.write(E)
-
     # extract entities or yes/no
     my_q_type = q_types[int(question_id[-3:]) - 1]
     if my_q_type == 1:  # yes/no case
@@ -220,7 +214,7 @@ for question_id, question_text in q_list:
         my_extract = ee.extract_entity_answer(linked_entities, raw_answer, bert_model)
         matcher = Matcher()
         my_url = matcher.url(my_extract, linked_entities)
-        A = question_id + '\t' + 'A' + '\"' + my_extract + my_url + '\"\n'
+        A = question_id + '\t' + 'A' + '\"' + my_extract + '\"+ '\t'+ '\" my_url + '\"\n'
         print(A)
         output_file.write(A)
     else:
@@ -231,7 +225,19 @@ for question_id, question_text in q_list:
     fcr = FactChecker()
     if my_q_type == 1:
         result = fcr.fact_check(my_q_type, question_text, raw_answer, my_q_type, my_url, extracted_entity=my_extract)
+        C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
+        print(C)
+        output_file.write(C)
     else:
         result = fcr.fact_check(my_q_type, question_text, raw_answer, my_q_type, my_url, extracted_entity=my_extract)
+        C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
+        print(C)
+        output_file.write(C)
 
+    for linked_entity in linked_entities:
+        E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity[
+            'url'] + '"' + '\n'
+        print(E)
+        output_file.write(E)
+        
 output_file.close()
