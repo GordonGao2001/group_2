@@ -1,33 +1,74 @@
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-import torch
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
 
-# Load a fine-tuned model for yes/no classification (replace with a suitable one)
-model_name = "mrm8488/bert-tiny-finetuned-squadv2"  # Example, change as needed
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
+# Define affirmative and negative keywords
+positive_words = ["yes", "absolutely", "correct", "true", "indeed", "certainly"]
+negative_words = ["no", "not", "never", "false", "wrong", "incorrect", "flightless", "hopeless"]
+all_words = positive_words + negative_words
 
+# Create dataset: 1 for positive, 0 for negative
+labels = [1] * len(positive_words) + [0] * len(negative_words)
 
-def classify_yes_no(question, response):
-    # Preprocess input
-    inputs = tokenizer.encode_plus(
-        f"Question: {question} Answer: {response}",
-        return_tensors="pt",
-        truncation=True
-    )
+# Convert words to vectors using CountVectorizer
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(all_words).toarray()  # Input features
+y = np.array(labels)                               # Target labels
 
-    # Predict using the model
-    outputs = model(**inputs)
-    probs = torch.nn.functional.softmax(outputs.logits, dim=-1)
-    labels = ["No", "Yes"]  # Adjust if model uses different label ordering
-    prediction = labels[torch.argmax(probs).item()]
+# Train a Logistic Regression model
+model = LogisticRegression()
+model.fit(X, y)
 
-    return prediction
+# Define the classify_yes_no function
+def classify_yes_no(response):
+    """
+    Classify a response as 'Yes' or 'No' by analyzing individual words and selecting the highest matching.
+
+    Parameters:
+        question (str): The input question (not used in this function, for compatibility).
+        response (str): The response to classify.
+
+    Returns:
+        str: The predicted label ('Yes' or 'No').
+    """
+    # Preprocess the response: Split into words
+    words = response.lower().split()
+
+    # Initialize scores for "Yes" and "No"
+    yes_score = 0
+    no_score = 0
+
+    for word in words:
+        # Vectorize the word
+        word_vectorized = vectorizer.transform([word]).toarray()
+
+        # Check if the word exists in the model's vocabulary
+        if np.any(word_vectorized):  # Non-zero vector means the word is in the vocabulary
+            prediction = model.predict(word_vectorized)[0]
+            if prediction == 1:
+                yes_score += 1
+            elif prediction == 0:
+                no_score += 1
+
+    # Determine the final classification based on scores
+    if yes_score > no_score:
+        return "Yes"
+    elif no_score > yes_score:
+        return "No"
+    else:
+        return "Uncertain"  # Fallback for ties or no matching words
 
 def test():
     # Example usage
-    question = "Are cameramen the main force fighting against skibidi toilet?"
-    response = "Correct, the Cameramen are the main force fighting against the Skibidi Toilets in the series."
-    result = classify_yes_no(question, response)
-    print(f"Prediction: {result}")
+    responses = [
+        "Yes, India is the largest country.",
+        "No, that statement is false.",
+        "Penguins are flightless creatures.",
+        "This is hopeless.",
+        "Indeed, you are absolutely correct!",
+    ]
 
-# test()
+    for response in responses:
+        result = classify_yes_no("", response)
+        print(f"Response: {response} --> Prediction: {result}")
+

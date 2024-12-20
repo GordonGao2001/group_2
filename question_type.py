@@ -1,76 +1,65 @@
 import spacy
-import re
 
+# Load SpaCy model
 nlp = spacy.load("en_core_web_sm")
 
 
-# the reason to question extract is becuse
-# I want to exclude any interference of irrelavant word confuse the nlp
-def extract_meaningful_segment(skibidi):
+def question_type(question):
     """
-    Dynamically extract the most meaningful sentence-like segment from noisy input.
+    Classify a question as Yes/No or Entity-based using SpaCy and improved logic.
+
+    Parameters:
+        question (str): The input question.
+
+    Returns:
+        int: 1 for Yes/No questions, 2 for Entity-based questions.
     """
-    # just don't split at space and we're good
-    segments = re.split(r"[;|.,!?/:\\~*#\-\n\t]+", skibidi[1])
-    # Filter and clean segments
-    segments = [seg.strip() for seg in segments if len(seg.strip()) > 0]
+    # Step 1: Preprocess the question
+    question = question.strip().lower().replace("question:", "").strip()
 
-    # Choose the longest segment with valid syntax
-    best_segment = ""
-    max_length = 0
-    for segment in segments:
-        doc = nlp(segment)
-        if len(doc) > max_length and any(token.pos_ in {"VERB", "AUX"} for token in doc):
-            best_segment = segment
-            max_length = len(doc)
-    return best_segment
+    # Step 2: Rule-based classification for yes/no
+    yes_no_starters = {"is", "are", "was", "were", "do", "does", "did", "will", "can", "could", "should"}
+    entity_starters = {"what", "who", "where", "when", "how", "which"}
+
+    # Check if the question starts with yes/no or entity indicators
+    first_word = question.split()[0]
+    if first_word in yes_no_starters:
+        return 1  # Yes/No question
+    if first_word in entity_starters:
+        return 2  # Entity-based question
+
+    # Step 3: Use SpaCy dependency parsing as a fallback
+    doc = nlp(question)
+
+    # Check for auxiliary verbs as ROOT, common in yes/no questions
+    for token in doc:
+        if token.dep_ == "ROOT" and token.tag_ in {"VBZ", "VBP", "VBD"}:  # Verbs like 'is', 'are', 'was'
+            return 1  # Yes/No question
+
+    # Default to entity-based if no yes/no structure is detected
+    return 2
 
 
-def question_tree(sentence):
-    """
-    Classify the type of the extracted meaningful sentence.
-    0 stands for unknown, 1 stands for Y/N, 2 stands for entity enquiry.
-    """
-    doc = nlp(sentence)
-    root = [token for token in doc if token.head == token][0]  # The root of the sentence
-    if root.dep_ == "ROOT" and root.i == 0:  # Root verb is the first token
-        return 1
-
-    # Check for WH-words (Entity/WH-Question)
-    wh_words = {"what", "where", "who", "when", "which", "how"}
-    if any(token.text.lower() in wh_words for token in doc):
-        return 2
-
-    # Check if the sentence has a missing object (Entity/Declarative)
-    if any(token.dep_ == "attr" or token.dep_ == "nsubj" for token in doc) and not any(
-            token.dep_ == "dobj" for token in doc):
-        return 2
-
-    return 0
-
-def question_classifier(questions):
+def questions_classifier(questions):
     res = []
     for question in questions:
-        segment = extract_meaningful_segment(question)
-        res.append(question_tree(segment))
+        res.append(question_type(question[1]))
 
     return res
 
 def test():
-    # Test Cases
-    sentences = [
-        "Is Managua the capital of Nicaragua?",
-        "Question: Is it true that that China is the country with most people in the world?",
-        "The largest company in the world by revenue is Apple",
-        "Question: Who is the director of Pulp Fiction? Answer:",
-        "skibidi toilet ohio hawk tuah| Is Mount Everest the tallest mountain in the world?",
-        "skibidi toilet ohio hawk tuah} Is Mount Everest the tallest mountain in the world?",
-        "skibidi toilet ohio hawk tuah; Is Mount Everest the tallest mountain in the world?",
-
+    questions = [
+        "Question: Is it true that China is the country with the most people?",
+        "What is the capital of France?",
+        "Can penguins fly?",
+        "Where is the Eiffel Tower located?",
+        "Is it true that whales are mammals?",
+        "Question: Who wrote 'Hamlet'?"
     ]
 
-    for input_text in sentences:
-        segment = extract_meaningful_segment(input_text)
-        print(f"Original: {input_text}")
-        print(f"Extracted Segment: {segment}")
-        print(f"Type: {question_tree(segment)}\n")
+    for q in questions:
+        q_type = question_type(q)
+        q_type_str = "Yes/No" if q_type == 1 else "Entity-based"
+        print(f"Question: {q} --> Type: {q_type_str}")
+
+# test()
