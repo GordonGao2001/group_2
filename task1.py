@@ -231,12 +231,6 @@ for question_id, question_text in q_list:
     # Link entities
     linked_entities = candidate_linking(question_text, raw_answer, filtered_named_entities, bert_model)
 
-    for linked_entity in linked_entities:
-        E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity[
-            'url'] + '"' + '\n'
-        print(E)
-        output_file.write(E)
-
    # print(f"****************delete me after publish*********:{question_id}")
     if q_types[int(question_id[-3:]) - 1] == 1:  # yes/no case
         my_extract = sentence_sentiment.classify_yes_no(raw_answer)
@@ -267,5 +261,11 @@ for question_id, question_text in q_list:
             output_file.write(C)
     else:
         my_extract = ""
+
+    for linked_entity in linked_entities:
+        E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity[
+            'url'] + '"' + '\n'
+        print(E)
+        output_file.write(E)
 
 output_file.close()
