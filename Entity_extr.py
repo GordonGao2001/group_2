@@ -14,4 +14,4 @@ def extract_entity_answer(named_entities, raw_answer, bert_model):
             best_score = similarity_score
             best_entity = entity
 
-    return best_entity['name'] if best_entity else None
+    return best_entity['name'] if best_entity else "#"

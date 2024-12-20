@@ -18,8 +18,26 @@ def question_type(question):
     question = question.strip().lower().replace("question:", "").strip()
 
     # Step 2: Rule-based classification for yes/no
-    yes_no_starters = {"is", "are", "was", "were", "do", "does", "did", "will", "can", "could", "should"}
-    entity_starters = {"what", "who", "where", "when", "how", "which"}
+    yes_no_starters = {
+        "is", "are", "was", "were",
+        "do", "does", "did",
+        "will", "would", "shall",
+        "can", "could", "should", "might", "may", "must",
+        "has", "have", "had",
+        "doesn't", "isn't", "aren't",
+        "didn't", "wasn't", "weren't",
+        "won't", "wouldn't", "shan't",
+        "can't", "couldn't", "shouldn't", "mightn't", "mustn't"
+    }
+    entity_starters = {
+        "what", "who", "whom", "whose",
+        "where", "when", "why",
+        "how", "which",
+        "how many", "how much",
+        "how long", "how far", "how often",
+        "what kind", "what type",
+        "in what", "by what", "on what"
+    }
 
     # Check if the question starts with yes/no or entity indicators
     first_word = question.split()[0]

@@ -72,3 +72,4 @@ def test():
         result = classify_yes_no("", response)
         print(f"Response: {response} --> Prediction: {result}")
 
+# test()
