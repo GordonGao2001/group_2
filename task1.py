@@ -214,7 +214,7 @@ for question_id, question_text in q_list:
         my_extract = ee.extract_entity_answer(linked_entities, raw_answer, bert_model)
         matcher = Matcher()
         my_url = matcher.url(my_extract, linked_entities)
-        A = question_id + '\t' + 'A' + '\"' + my_extract + '\"+ '\t'+ '\" my_url + '\"\n'
+        A = question_id + '\t' + 'A' + '\"' + my_extract + '\"'+ '\t'+ '\"'+ my_url + '\"\n'
         print(A)
         output_file.write(A)
     else:
