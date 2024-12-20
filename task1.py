@@ -68,7 +68,7 @@ def candidate_linking(question,answer, named_entities, bert_model):
     normalized_entities = set()
 
     question_vector = bert_model.encode([question])[0]
-    answer_vector = bert_model.encode([answer])[0] if answer else question_vector
+    answer_vector = bert_model.encode([answer])[0] 
 
     question_weight = 0.5
     answer_weight = 0.5
