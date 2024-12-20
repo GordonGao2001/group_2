@@ -20,7 +20,7 @@ model_path = '/home/user/models/llama-2-7b.Q4_K_M.gguf'
 llm = Llama(model_path=model_path, verbose=False)
 
 import openai
-openai.api_key = "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"
+openai.api_key = "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"
 def validate_extracted_answer(question, raw_answer, extracted_answer):
     prompt = f"""
     You are a validation assistant. You will be provided with:
