@@ -11,6 +11,7 @@ from difflib import SequenceMatcher
 import sentence_sentiment, question_type
 import Entity_extr as ee
 from matcher import Matcher
+from fact_check_reconstruct import FactChecker
 
 wiki_wiki = wikipediaapi.Wikipedia('WDPS Assignment Group_2', 'en')
 nlp = spacy.load("en_core_web_sm")
@@ -202,30 +203,41 @@ for question_id, question_text in q_list:
     # Link entities
     linked_entities = candidate_linking(question_text, raw_answer, filtered_named_entities, bert_model)
 
+    # extract entities or yes/no
+    my_q_type = q_types[int(question_id[-3:]) - 1]
+    if my_q_type == 1:  # yes/no case
+        my_extract = sentence_sentiment.classify_yes_no(raw_answer)
+        A = question_id + '\t' + 'A' + '\"' + my_extract + '\"\n'
+        print(A)
+        output_file.write(A)
+    elif my_q_type == 2:  # entity case
+        my_extract = ee.extract_entity_answer(linked_entities, raw_answer, bert_model)
+        matcher = Matcher()
+        my_url = matcher.url(my_extract, linked_entities)
+        A = question_id + '\t' + 'A' + '\"' + my_extract + '\"'+ '\t'+ '\"'+ my_url + '\"\n'
+        print(A)
+        output_file.write(A)
+    else:
+        continue
+
+
+    # Fact checking
+    fcr = FactChecker()
+    if my_q_type == 1:
+        result = fcr.fact_check(my_q_type, question_text, raw_answer, my_q_type, my_url, extracted_entity=my_extract)
+        C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
+        print(C)
+        output_file.write(C)
+    else:
+        result = fcr.fact_check(my_q_type, question_text, raw_answer, my_q_type, my_url, extracted_entity=my_extract)
+        C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
+        print(C)
+        output_file.write(C)
+
     for linked_entity in linked_entities:
         E = question_id + '\t' + 'E' + '"' + linked_entity['name'] + '"' + '\t' + '"' + linked_entity[
             'url'] + '"' + '\n'
         print(E)
         output_file.write(E)
-
-    # print(f"****************delete me after publish*********:{question_id}")
-    if q_types[int(question_id[-3:]) - 1] == 1:  # yes/no case
-        my_extract = sentence_sentiment.classify_yes_no(raw_answer)
-        A = question_id + '\t' + 'A' + '\"' + my_extract + '\"\n'
-        print(A)
-        output_file.write(A)
-    elif q_types[int(question_id[-3:]) - 1] == 2:  # entity case
-        my_extract = ee.extract_entity_answer(linked_entities, raw_answer, bert_model)
-        if False:  # why do we need to extract the url as an answer????
-            A = question_id + '\t' + 'A' + '\"' + my_extract + '\"\n'
-            print(A)
-            output_file.write(A)
-        elif True:  # I just add url in a tuple, so you can use the extracted entity as original
-            matcher = Matcher()
-            A = question_id + '\t' + 'A' + '\"' + my_extract + matcher.url(my_extract, linked_entities) + '\"\n'
-            print(A)
-            output_file.write(A)
-    else:
-        my_extract = ""
-
+        
 output_file.close()
