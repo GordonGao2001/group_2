@@ -49,7 +49,7 @@ def process_question(question_id, question_text):
     filtered_named_entities = extract_named_entities(QandA)
     linked_entities = candidate_linking(question_text, raw_answer, filtered_named_entities, bert_model)
     
-    my_q_type = question_type.questions_classifier([question_text])[0]
+    my_q_type = question_type.question_type(question_text)
     response_data = [(question_id, R)]
     if not linked_entities:
         return response_data
