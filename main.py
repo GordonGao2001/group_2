@@ -11,10 +11,10 @@ from difflib import SequenceMatcher
 import sentence_sentiment, question_type
 import Entity_extr as ee
 from matcher import Matcher
-# from fact_check_reconstruct import FactChecker
+from fact_check_reconstruct import FactChecker
 from named_entity_extraction import extract_named_entities
 from named_entity_linking import candidate_linking
-from fact_checking_with_GPT import validate_extracted_answer
+#from fact_checking_with_GPT import validate_extracted_answer
 nlp = spacy.load("en_core_web_sm")
 
 bert_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
@@ -86,7 +86,7 @@ for question_id, question_text in q_list:
     linked_entities = candidate_linking(question_text, raw_answer, filtered_named_entities, bert_model)
     if not linked_entities:
         continue
-    # extract entities or yes/no
+    
     my_q_type = q_types[int(question_id[-3:]) - 1]
     if my_q_type == 1:  # yes/no case
         my_extract = sentence_sentiment.classify_yes_no(raw_answer)
@@ -103,31 +103,17 @@ for question_id, question_text in q_list:
     else:
         continue
 
-
-    # # Fact checking
-    # fcr = FactChecker()
-    # if my_q_type == 1:
-    #     result = fcr.fact_check(my_q_type, question_text, raw_answer, my_q_type, my_url, extracted_entity=my_extract)
-    #     C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
-    #     print(C)
-    #     output_file.write(C)
-    # else:
-    #     result = fcr.fact_check(my_q_type, question_text, raw_answer, my_q_type, my_url, extracted_entity=my_extract)
-    #     C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
-    #     print(C)
-    #     output_file.write(C)
     
-    from fact_checking import FactChecker
+    # Fact checking
     fcr = FactChecker()
+    my_urls = [entity['url'] for entity in linked_entities]
     if my_q_type == 1:
-        # result = fcr.fact_check(question_text,my_extract,linked_entities)
-        result = validate_extracted_answer(question_text,extracted_answer=my_extract)
+        result = fcr.fact_check(my_q_type, question_text, my_extract, my_urls)
         C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
         print(C)
         output_file.write(C)
     else:
-        #result = fcr.fact_check(question_text,my_extract,linked_entities,url=my_url)
-        result = validate_extracted_answer(question_text,extracted_answer=my_extract)
+        result = fcr.fact_check(my_q_type, question_text, my_extract, my_urls, extracted_entity=my_extract)
         C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
         print(C)
         output_file.write(C)

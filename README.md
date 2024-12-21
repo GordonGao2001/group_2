@@ -68,27 +68,27 @@ Output file is in the same directory
 ### Running Locally
 Follow these steps to run the project on your local machine:
 #### 1. Clone the repository
-      ```
-      git clone https://github.com/GordonGao2001/group_2.git
-      cd group_2
-      ```
+```
+git clone https://github.com/GordonGao2001/group_2.git
+cd group_2
+```
 #### 2. Create virtual environment with Anoconda
-    ```
-    conda create --name wdps -c conda-forge python=3.11.2
-    conda activate wdps
-    ```
+```
+conda create --name wdps -c conda-forge python=3.11.2
+conda activate wdps
+```
 #### 3. Environment Setup(Debian/Ubuntu)
-    ```
-    chmod 777 set_up.sh
-    ./set_up.sh
-    ```
+```
+chmod 777 set_up.sh
+./set_up.sh
+```
 #### 4. Run the code
 The code is located in workspace, in container terminal:
-   ```
-   python main.py
-   ``` 
+```
+python main.py
+``` 
 #### 5. Check the result
 Output file is in the same directory
-   ```
-   cat output.txt
-   ```
+```
+cat output.txt
+```
