@@ -1,0 +1,1073 @@
+[
+    {
+        "id": "question-001",
+        "question": "Is the Eiffel Tower located in Paris?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-002",
+        "question": "Is Mount Everest the highest peak on Earth?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-003",
+        "question": "Does the Amazon River flow through Egypt?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-004",
+        "question": "Is Python a type of programming language?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-005",
+        "question": "Can penguins fly?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-006",
+        "question": "Is water composed of hydrogen and oxygen?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-007",
+        "question": "Is the capital of the United States New York?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-008",
+        "question": "Does the sun rise in the west?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-009",
+        "question": "Is the Pacific Ocean the largest ocean in the world?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-010",
+        "question": "Can humans breathe underwater without equipment?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-011",
+        "question": "Is coffee made from beans?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-012",
+        "question": "Is the moon a planet?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-013",
+        "question": "Is water wet?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-014",
+        "question": "Is gold a chemical element?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-015",
+        "question": "Can electricity flow through rubber?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-016",
+        "question": "Do whales lay eggs?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-017",
+        "question": "Is the Great Wall of China visible from space?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-018",
+        "question": "Is Venus closer to the Sun than Earth?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-019",
+        "question": "Is the Statue of Liberty located in Los Angeles?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-020",
+        "question": "Does gravity exist on the moon?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-021",
+        "question": "Is Antarctica the hottest place on Earth?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-022",
+        "question": "Is Tokyo the capital city of Japan?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-023",
+        "question": "Can fish survive in saltwater?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-024",
+        "question": "Is the internet older than the 1980s?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-025",
+        "question": "Is Mars a gas giant?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-026",
+        "question": "Do humans have 4 legs?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-027",
+        "question": "Is the Taj Mahal in India?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-028",
+        "question": "Can birds fly?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-029",
+        "question": "Is Australia an island?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-030",
+        "question": "Is fire cold?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-031",
+        "question": "Is Mount Kilimanjaro located in Africa?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-032",
+        "question": "Do all mammals give birth to live young?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-033",
+        "question": "Is English the most spoken language in the world?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-034",
+        "question": "Is hydrogen the lightest element?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-035",
+        "question": "Can ice float on water?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-036",
+        "question": "Is the speed of light faster than the speed of sound?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-037",
+        "question": "Is chocolate made from cocoa?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-038",
+        "question": "Is Greenland the largest island in the world?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-039",
+        "question": "Is the piano a string instrument?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-040",
+        "question": "Can humans digest cellulose?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-041",
+        "question": "Is the Amazon rainforest located in South America?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-042",
+        "question": "Is helium heavier than air?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-043",
+        "question": "Do spiders have 8 legs?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-044",
+        "question": "Is the Earth flat?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-045",
+        "question": "Is the Milky Way a galaxy?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-046",
+        "question": "Is the Sahara Desert the largest desert in the world?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-047",
+        "question": "Can metal conduct electricity?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-048",
+        "question": "Is the Great Barrier Reef located in Australia?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-049",
+        "question": "Is Pluto still classified as a planet?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-050",
+        "question": "Is the Atlantic Ocean smaller than the Arctic Ocean?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-051",
+        "question": "Can cats see in complete darkness?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-052",
+        "question": "Do all insects have 6 legs?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-053",
+        "question": "Is Saturn the second largest planet in our solar system?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-054",
+        "question": "Can humans survive on the moon without a spacesuit?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-055",
+        "question": "Is the Amazon rainforest the largest forest in the world?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-056",
+        "question": "Do all birds have wings?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "yes",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-057",
+        "question": "Is silver more valuable than gold?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-058",
+        "question": "Can humans see ultraviolet light?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "no",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-059",
+        "question": "Is the equator the longest latitude line on Earth?",
+        "question_type_correct": true,
+        "expected_answer": "yes",
+        "my_answer": "no",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-060",
+        "question": "Can elephants jump?",
+        "question_type_correct": true,
+        "expected_answer": "no",
+        "my_answer": "yes",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-061",
+        "question": "Who wrote the play Romeo and Juliet?",
+        "question_type_correct": true,
+        "expected_answer": "William Shakespeare",
+        "my_answer": "Alexander Pope",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-062",
+        "question": "What is the capital of France?",
+        "question_type_correct": true,
+        "expected_answer": "Paris",
+        "my_answer": "Paris",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-063",
+        "question": "Who painted the Mona Lisa?",
+        "question_type_correct": true,
+        "expected_answer": "Leonardo da Vinci",
+        "my_answer": "Mona Lisa",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-064",
+        "question": "Where is the Great Pyramid of Giza located?",
+        "question_type_correct": true,
+        "expected_answer": "Egypt",
+        "my_answer": "Great Pyramid of Giza",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-065",
+        "question": "Who is the founder of Microsoft?",
+        "question_type_correct": true,
+        "expected_answer": "Bill Gates",
+        "my_answer": "Arbeiter Fragen",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-066",
+        "question": "What is the tallest mountain in the world?",
+        "question_type_correct": true,
+        "expected_answer": "Mount Everest",
+        "my_answer": "Badener H\u00f6he",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-067",
+        "question": "Where is the Statue of Liberty located?",
+        "question_type_correct": true,
+        "expected_answer": "New York City",
+        "my_answer": "Statue of Liberty",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-068",
+        "question": "What is the largest planet in our solar system?",
+        "question_type_correct": true,
+        "expected_answer": "Jupiter",
+        "my_answer": "Mercury",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-069",
+        "question": "Who discovered gravity?",
+        "question_type_correct": true,
+        "expected_answer": "Isaac Newton",
+        "my_answer": "Isaac Newton",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-070",
+        "question": "What is the smallest country in the world?",
+        "question_type_correct": true,
+        "expected_answer": "Vatican City",
+        "my_answer": "Monaco",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-071",
+        "question": "Where is the Colosseum located?",
+        "question_type_correct": true,
+        "expected_answer": "Rome",
+        "my_answer": "Rome",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-072",
+        "question": "Who wrote the book 1984?",
+        "question_type_correct": true,
+        "expected_answer": "George Orwell",
+        "my_answer": "The Book of Dust",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-073",
+        "question": "What is the national animal of China?",
+        "question_type_correct": true,
+        "expected_answer": "Giant Panda",
+        "my_answer": "Animals of China",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-074",
+        "question": "Who was the first President of the United States?",
+        "question_type_correct": true,
+        "expected_answer": "George Washington",
+        "my_answer": "President of the United States",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-075",
+        "question": "What is the chemical symbol for water?",
+        "question_type_correct": true,
+        "expected_answer": "H2O",
+        "my_answer": "Symbol",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-076",
+        "question": "Where is the Leaning Tower of Pisa located?",
+        "question_type_correct": true,
+        "expected_answer": "Italy",
+        "my_answer": "Leaning Tower of Pisa",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-077",
+        "question": "Who is known as the father of computers?",
+        "question_type_correct": true,
+        "expected_answer": "Charles Babbage",
+        "my_answer": "List of fictional computers",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-078",
+        "question": "What is the capital of Japan?",
+        "question_type_correct": true,
+        "expected_answer": "Tokyo",
+        "my_answer": "Japan",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-079",
+        "question": "Who is the current CEO of Tesla?",
+        "question_type_correct": true,
+        "expected_answer": "Elon Musk",
+        "my_answer": "Elon Musk",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-080",
+        "question": "Where is the Golden Gate Bridge located?",
+        "question_type_correct": true,
+        "expected_answer": "San Francisco",
+        "my_answer": "Golden Gate Bridge",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-081",
+        "question": "What is the name of the longest river in the world?",
+        "question_type_correct": true,
+        "expected_answer": "Nile River",
+        "my_answer": ".name",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-082",
+        "question": "Who developed the theory of relativity?",
+        "question_type_correct": true,
+        "expected_answer": "Albert Einstein",
+        "my_answer": "Theory of relativity",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-083",
+        "question": "Where is the Taj Mahal located?",
+        "question_type_correct": true,
+        "expected_answer": "India",
+        "my_answer": "Agra",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-084",
+        "question": "What is the official language of Brazil?",
+        "question_type_correct": true,
+        "expected_answer": "Portuguese",
+        "my_answer": "Languages of Brazil",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-085",
+        "question": "Who won the 2022 FIFA World Cup?",
+        "question_type_correct": true,
+        "expected_answer": "Argentina",
+        "my_answer": "Lionel Messi",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-086",
+        "question": "Where is the headquarters of the United Nations?",
+        "question_type_correct": true,
+        "expected_answer": "New York City",
+        "my_answer": "UNESCO",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-087",
+        "question": "What is the currency of the United Kingdom?",
+        "question_type_correct": true,
+        "expected_answer": "Pound Sterling",
+        "my_answer": "Coins of the pound sterling",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-088",
+        "question": "Who invented the telephone?",
+        "question_type_correct": true,
+        "expected_answer": "Alexander Graham Bell",
+        "my_answer": "Alexander Graham Bell",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-089",
+        "question": "What is the largest desert in the world?",
+        "question_type_correct": true,
+        "expected_answer": "Sahara Desert",
+        "my_answer": "Melitta",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-090",
+        "question": "Where is Mount Kilimanjaro located?",
+        "question_type_correct": true,
+        "expected_answer": "Tanzania",
+        "my_answer": "Mount Kilimanjaro",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-091",
+        "question": "Who was the first man to walk on the moon?",
+        "question_type_correct": true,
+        "expected_answer": "Neil Armstrong",
+        "my_answer": "Moon",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-092",
+        "question": "What is the capital of Germany?",
+        "question_type_correct": true,
+        "expected_answer": "Berlin",
+        "my_answer": "Berlin",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-093",
+        "question": "Who painted the ceiling of the Sistine Chapel?",
+        "question_type_correct": true,
+        "expected_answer": "Michelangelo",
+        "my_answer": "David (Michelangelo)",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-094",
+        "question": "What is the name of the primary programming language for Android development?",
+        "question_type_correct": true,
+        "expected_answer": "Java",
+        "my_answer": ".java",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-095",
+        "question": "Where is the Burj Khalifa located?",
+        "question_type_correct": true,
+        "expected_answer": "Dubai",
+        "my_answer": "Islamic architecture",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-096",
+        "question": "What is the fastest land animal?",
+        "question_type_correct": true,
+        "expected_answer": "Cheetah",
+        "my_answer": "Cheetah",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-097",
+        "question": "Who is the author of the Harry Potter series?",
+        "question_type_correct": true,
+        "expected_answer": "J.K. Rowling",
+        "my_answer": "Harry Potter",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-098",
+        "question": "Where is the Louvre Museum located?",
+        "question_type_correct": true,
+        "expected_answer": "Paris",
+        "my_answer": "Catalog of paintings in the Louvre Museum",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-099",
+        "question": "What is the capital city of Canada?",
+        "question_type_correct": true,
+        "expected_answer": "Ottawa",
+        "my_answer": "National Capital Region (Canada)",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-100",
+        "question": "Who discovered penicillin?",
+        "question_type_correct": true,
+        "expected_answer": "Alexander Fleming",
+        "my_answer": "Alexander Fleming",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-101",
+        "question": "Where is the Amazon rainforest located?",
+        "question_type_correct": true,
+        "expected_answer": "South America",
+        "my_answer": "Amazon",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-102",
+        "question": "Who is the founder of SpaceX?",
+        "question_type_correct": true,
+        "expected_answer": "Elon Musk",
+        "my_answer": "SpaceX",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-103",
+        "question": "Where is the Sydney Opera House located?",
+        "question_type_correct": true,
+        "expected_answer": "Sydney",
+        "my_answer": "Theatre of ancient Greece",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-104",
+        "question": "What is the name of the smallest particle of an element?",
+        "question_type_correct": true,
+        "expected_answer": "Atom",
+        "my_answer": "Name",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-105",
+        "question": "What is the national flower of Japan?",
+        "question_type_correct": true,
+        "expected_answer": "Cherry Blossom",
+        "my_answer": "Japanese",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-107",
+        "question": "What is the primary ingredient in sushi?",
+        "question_type_correct": true,
+        "expected_answer": "Rice",
+        "my_answer": "Ingredient",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-108",
+        "question": "Where is the largest coral reef system in the world?",
+        "question_type_correct": true,
+        "expected_answer": "Australia",
+        "my_answer": "Augustin Kraemer",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-109",
+        "question": "What is the chemical symbol for gold?",
+        "question_type_correct": true,
+        "expected_answer": "Au",
+        "my_answer": "Symbol",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-110",
+        "question": "What is the name of the longest wall in the world?",
+        "question_type_correct": true,
+        "expected_answer": "The Great Wall of China",
+        "my_answer": "History of geography",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-111",
+        "question": "Who is known as the father of modern physics?",
+        "question_type_correct": true,
+        "expected_answer": "Albert Einstein",
+        "my_answer": "Branches of physics",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-112",
+        "question": "What is the national bird of the United States?",
+        "question_type_correct": true,
+        "expected_answer": "Bald Eagle",
+        "my_answer": "United States",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-113",
+        "question": "What is the capital city of Australia?",
+        "question_type_correct": true,
+        "expected_answer": "Canberra",
+        "my_answer": "List of Australian capital cities",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-114",
+        "question": "Who wrote The Odyssey?",
+        "question_type_correct": true,
+        "expected_answer": "Homer",
+        "my_answer": "Odyssey",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-115",
+        "question": "Where is Big Ben located?",
+        "question_type_correct": true,
+        "expected_answer": "London",
+        "my_answer": "Big Ben",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-116",
+        "question": "What is the name of the red planet?",
+        "question_type_correct": true,
+        "expected_answer": "Mars",
+        "my_answer": "Naming of moons",
+        "answer_correct": false,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-117",
+        "question": "What is the capital of South Korea?",
+        "question_type_correct": true,
+        "expected_answer": "Seoul",
+        "my_answer": "Fourth branch of government",
+        "answer_correct": false,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-118",
+        "question": "Who invented the World Wide Web?",
+        "question_type_correct": true,
+        "expected_answer": "Tim Berners-Lee",
+        "my_answer": "Tim Berners-Lee",
+        "answer_correct": true,
+        "fact_check_correct": false
+    },
+    {
+        "id": "question-119",
+        "question": "What is the name of the ship that sank in 1912?",
+        "question_type_correct": true,
+        "expected_answer": "Titanic",
+        "my_answer": "Titanic",
+        "answer_correct": true,
+        "fact_check_correct": true
+    },
+    {
+        "id": "question-120",
+        "question": "Who is known as the king of pop?",
+        "question_type_correct": true,
+        "expected_answer": "Michael Jackson",
+        "my_answer": "Michael Jackson",
+        "answer_correct": true,
+        "fact_check_correct": true
+    }
+]
