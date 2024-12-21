@@ -3,8 +3,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 
 # Define affirmative and negative keywords
-positive_words = ["yes", "absolutely", "correct", "true", "indeed", "certainly"]
-negative_words = ["no", "not", "never", "false", "wrong", "incorrect", "flightless", "hopeless"]
+positive_words = [
+    "yes", "absolutely", "correct", "true", "indeed", "certainly",
+    "yeah", "yep", "sure", "surely", "of course", "definitely", "by all means",
+    "affirmative"
+]
+negative_words = [
+    "no", "not", "never", "false", "wrong", "incorrect",
+    "flightless", "hopeless", "nope", "nah", "no way", "nay", "none"
+]
 all_words = positive_words + negative_words
 
 # Create dataset: 1 for positive, 0 for negative
@@ -52,12 +59,9 @@ def classify_yes_no(response):
 
     # Determine the final classification based on scores
     if yes_score > no_score:
-        return "Yes"
-    elif no_score > yes_score:
-        return "No"
+        return "yes"
     else:
-        return "Uncertain"  # Fallback for ties or no matching words
-
+        return "no"
 def test():
     # Example usage
     responses = [

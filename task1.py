@@ -202,7 +202,7 @@ for question_id, question_text in q_list:
 
     # Link entities
     linked_entities = candidate_linking(question_text, raw_answer, filtered_named_entities, bert_model)
-
+    #print(f"********delete me********************{type(linked_entities)}")
     # extract entities or yes/no
     my_q_type = q_types[int(question_id[-3:]) - 1]
     if my_q_type == 1:  # yes/no case
@@ -223,13 +223,14 @@ for question_id, question_text in q_list:
 
     # Fact checking
     fcr = FactChecker()
+    my_urls = [entity['url'] for entity in linked_entities]
     if my_q_type == 1:
-        result = fcr.fact_check(my_q_type, question_text, raw_answer, my_q_type, my_url, extracted_entity=my_extract)
+        result = fcr.fact_check(my_q_type, question_text, my_extract, my_urls)
         C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
         print(C)
         output_file.write(C)
     else:
-        result = fcr.fact_check(my_q_type, question_text, raw_answer, my_q_type, my_url, extracted_entity=my_extract)
+        result = fcr.fact_check(my_q_type, question_text, my_extract, my_urls, extracted_entity=my_extract)
         C = question_id + '\t' + 'C' + '\"' + result + '\"\n'
         print(C)
         output_file.write(C)

@@ -10,7 +10,7 @@ This image was built based on karmaresearch/wdps2, you can test the code with th
 
 #### 2. Clone the repository
    ```
-   git clone -b icarusgao --single-branch https://github.com/GordonGao2001/group_2.git
+   git clone https://github.com/GordonGao2001/group_2.git
    cd group_2
    ```
 #### 3. Run the Container
@@ -22,7 +22,7 @@ This image was built based on karmaresearch/wdps2, you can test the code with th
 The code is located in workspace, in container terminal:
    ```
    cd workspace
-   python task1.py
+   python main.py
    ``` 
 #### 5. Check the result
 Output file is in the same directory
@@ -39,7 +39,7 @@ Based on the course-provided image, follow the complete operation process. Note 
    ```
 #### 2. Clone the repository
    ```
-   git clone -b icarusgao --single-branch https://github.com/GordonGao2001/group_2.git
+   git clone https://github.com/GordonGao2001/group_2.git
    cd group_2
    ```
 #### 3. Run the Container
@@ -56,7 +56,7 @@ Based on the course-provided image, follow the complete operation process. Note 
 #### 4. Run the code
 The code is located in workspace, in container terminal:
    ```
-   python task1.py
+   python main.py
    ``` 
 #### 5. Check the result
 Output file is in the same directory
@@ -69,7 +69,7 @@ Output file is in the same directory
 Follow these steps to run the project on your local machine:
 #### 1. Clone the repository
       ```
-      git clone -b icarusgao --single-branch https://github.com/GordonGao2001/group_2.git
+      git clone https://github.com/GordonGao2001/group_2.git
       cd group_2
       ```
 #### 2. Create virtual environment with Anoconda
@@ -85,7 +85,7 @@ Follow these steps to run the project on your local machine:
 #### 4. Run the code
 The code is located in workspace, in container terminal:
    ```
-   python task1.py
+   python main.py
    ``` 
 #### 5. Check the result
 Output file is in the same directory

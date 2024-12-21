@@ -10,7 +10,7 @@ def extract_entity_answer(named_entities, raw_answer, bert_model):
         entity_name = entity['name']
         entity_vector = bert_model.encode([entity_name])[0]
         similarity_score = cosine_similarity([answer_vector], [entity_vector])[0][0]
-        if similarity_score > best_score:
+        if similarity_score >= best_score:
             best_score = similarity_score
             best_entity = entity
 

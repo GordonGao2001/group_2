@@ -8,7 +8,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 
 class FactChecker:
-    def __init__(self, similarity_threshold=0.8):
+    def __init__(self, similarity_threshold=0.65):
         """
         Initialize the FactChecker with a semantic similarity threshold.
         """
@@ -29,41 +29,12 @@ class FactChecker:
             api_url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{entity}"
             response = requests.get(api_url)
             if response.status_code == 200:
+                # print(1)
                 return response.json().get("extract", "")
             return ""
         except Exception as e:
             print(f"Error retrieving Wikipedia data for {url}: {e}")
             return ""
-
-    def reconstruct_statement(self, question, answer, extracted_entity):
-        """
-        Reconstruct a logical statement for similarity comparison.
-
-        Parameters:
-            question (str): The original question text.
-            answer (str): The answer (yes/no or extracted entity).
-            extracted_entity (str): The main entity extracted from the question.
-
-        Returns:
-            str: Reconstructed statement with repetitive negation for "no" answers.
-        """
-        doc = nlp(question)
-        root = [token for token in doc if token.dep_ == "ROOT"]
-        if not root:
-            raise ValueError("Could not find a root verb in the question.")
-        root = root[0]
-
-        # Extract object of the question
-        obj = [token for token in doc if token.dep_ in {"attr", "dobj", "pobj"}]
-        obj = obj[0].text if obj else question.replace("?", "").strip()
-
-        # Construct repetitive negative statement for "no" answers
-        if answer.lower() == "yes":
-            return f"{obj} is {extracted_entity}."
-        elif answer.lower() == "no":
-            return f"{obj} is not not not {extracted_entity}."
-        else:
-            raise ValueError("Invalid answer for yes/no question.")
 
     def abstract_summary(self, summary):
         """
@@ -86,21 +57,60 @@ class FactChecker:
 
         return f"{subj} {root} {obj}."
 
-    def fact_check(self, question, answer, urls, extracted_entity):
+    def reconstruct_statement(self, q_type, question, answer, extracted_entity=None):
+        """
+        Reconstruct a logical statement for similarity comparison.
+
+        Parameters:
+            q_type (Int): The question type.
+            question (str): The original question text.
+            answer (str): The answer (yes/no or extracted entity).
+            extracted_entity (str, optional): The main entity extracted from the question.
+
+        Returns:
+            str: Reconstructed statement with repetitive negation for "no" answers.
+        """
+        doc = nlp(question)
+        root = [token for token in doc if token.dep_ == "ROOT"]
+        if not root:
+            raise ValueError("Could not find a root verb in the question.")
+        root = root[0]
+
+        # Extract object of the question
+        obj = [token for token in doc if token.dep_ in {"attr", "dobj", "pobj"}]
+        obj = obj[0].text if obj else question.replace("?", "").strip()
+
+        # Construct statements based on answer and extracted entity
+        if q_type == 2:
+            # For entity-based questions (Type 2)
+            return f"{obj} is {extracted_entity}."
+        else:
+            # For yes/no questions (Type 1) with no extracted entity
+            if answer.lower() == "yes":
+                return f"{obj} is {root.text}."
+            elif answer.lower() == "no":
+                return f"{obj} is not not not {root.text}."
+
+        raise ValueError("Invalid answer for question type.")
+
+    def fact_check(self, question_type, question, answer, urls, extracted_entity=None):
         """
         Perform fact-checking by comparing the reconstructed statement with Wikipedia summaries.
 
         Parameters:
+            question_type (int): 1 for yes/no, 2 for entity-based.
             question (str): Original question text.
             answer (str): The answer (yes/no or extracted entity).
             urls (list of str): List of Wikipedia URLs.
-            extracted_entity (str): Extracted entity from the question.
+            extracted_entity (str, optional): Extracted entity from the question.
 
         Returns:
             str: "correct" or "incorrect" based on the comparison.
         """
         # Step 1: Reconstruct the statement from the question
-        reconstructed_statement = self.reconstruct_statement(question, answer, extracted_entity)
+        reconstructed_statement = self.reconstruct_statement(
+            question_type, question, answer, extracted_entity
+        )
 
         # Step 2: Compare against summaries for all URLs
         highest_similarity = 0
@@ -117,20 +127,16 @@ class FactChecker:
         return "correct" if highest_similarity >= self.similarity_threshold else "incorrect"
 
 
-
-
-
 def test():
     fact_checker = FactChecker()
 
     # Yes/No question example
     question = "Is Among Us a video game?"
+    q_type = 1
     answer = "no"
     urls = ["https://en.wikipedia.org/wiki/Among_Us"]
-    extracted_entity = "Among Us"
 
-    result = fact_checker.fact_check(question, answer, urls, extracted_entity)
+    result = fact_checker.fact_check(q_type,question, answer, urls)
     print(f"Fact-Check Result: {result}")
-
 
 # test()
