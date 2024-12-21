@@ -30,6 +30,12 @@ Output file is in the same directory
    cat output.txt
    ```
 
+### 6. Testing Programme
+the test data stored in test,json, the output of test cases and accuracy are stored in test_output.json and test_report.
+```
+python test.py
+```
+need 30 minutes
 
 ### Running with Docker(with image: karmaresearch/wdps2)
 Based on the course-provided image, follow the complete operation process. Note that some package versions may not match your operating system and may require manual handling.
@@ -63,7 +69,12 @@ Output file is in the same directory
    ```
    cat output.txt
    ```
-
+### 6. Testing Programme
+the test data stored in test,json, the output of test cases and accuracy are stored in test_output.json and test_report.
+```
+python test.py
+```
+need 30 minutes
 
 ### Running Locally
 Follow these steps to run the project on your local machine:
@@ -92,3 +103,10 @@ Output file is in the same directory
 ```
 cat output.txt
 ```
+
+### 6. Testing Programme
+the test data stored in test,json, the output of test cases and accuracy are stored in test_output.json and test_report.
+```
+python test.py
+```
+need 30 minutes
