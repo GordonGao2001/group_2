@@ -89,7 +89,8 @@ for question_id, question_text in q_list:
     
 
     # my_q_type = q_types[int(question_id[-3:]) - 1]
-    my_q_type = question_type.questions_classifier([question_text])[0]
+    # my_q_type = question_type.questions_classifier([question_text])[0]
+    my_q_type = question_type.question_type(question_text)
     if my_q_type == 1:  # yes/no case
         my_extract = sentence_sentiment.classify_yes_no(raw_answer)
         A = question_id + '\t' + 'A' + '\"' + my_extract + '\"\n'
