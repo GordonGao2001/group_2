@@ -18,8 +18,8 @@ from named_entity_linking import candidate_linking
 nlp = spacy.load("en_core_web_sm")
 
 bert_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
-model_path = '/Users/gaoxiangyu/desktop/models/llama-2-7b.Q4_K_M.gguf'
-# model_path = '/home/user/models/llama-2-7b.Q4_K_M.gguf' # in docker
+# model_path = '/Users/gaoxiangyu/desktop/models/llama-2-7b.Q4_K_M.gguf'
+model_path = '/home/user/models/llama-2-7b.Q4_K_M.gguf' # in docker
 # model_path = '/mnt/f/homeworks/WDPR/group_2/models/llama-2-7b-chat.Q4_K_M.gguf'
 llm = Llama(model_path=model_path, verbose=False)
 
